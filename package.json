@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "nodemailer": "^4.0.1"
+  },
+  "devDependencies": {
+    "serverless-secrets-plugin": "0.0.1"
   }
 }

@@ -1,12 +1,12 @@
 'use strict';
 
-const Notifier = require('notifier');
+const Notifier = require('./notifier');
 
 let notifier = new Notifier();
 
 // Example invocation:
 // curl -X 'POST' <url> -H 'Content-Type: application/json' -d '{"email": {"from": "someemail@blah.com", "to":"anotheremail.@blah.com", "subject" : "Some Subject", "body" : "Some Body" } }'
-module.exports.notify = (event, context, callback) => {
+module.exports.notifications = (event, context, callback) => {
 
     const json = JSON.parse(event.body);
     const emailNotification = json.email;

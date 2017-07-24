@@ -2,8 +2,10 @@
 node_modules
 jspm_packages
 
-# Serverless directories
+# Serverless
 .serverless
+secrets.dev.yml
+secrets.prod.yml
 
 # IDE
 .idea/
