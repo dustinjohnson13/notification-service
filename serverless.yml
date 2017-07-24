@@ -1,0 +1,13 @@
+service: notifier
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  notify:
+    handler: handler.notify
+    events:
+      - http:
+          path: notifier/email
+          method: post
