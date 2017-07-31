@@ -1,9 +1,8 @@
-service: notifier
+service: notification
 
 # Example commands using the serverless secrets plugin:
 # serverless decrypt --stage dev --password '<serverless_password>'
 # serverless encrypt --stage dev --password '<serverless_password>'
-# serverless deploy --stage dev
 # serverless deploy --stage dev
 
 plugins:
@@ -11,6 +10,16 @@ plugins:
 
 provider:
   name: aws
+  apiKeys:
+      - ${self:custom.secrets.API_KEY}
+  usagePlan:
+      quota:
+        limit: 5000
+        offset: 2
+        period: MONTH
+      throttle:
+        burstLimit: 200
+        rateLimit: 100
   runtime: nodejs6.10
 
 custom:
@@ -26,3 +35,4 @@ functions:
       - http:
           path: notifications/send
           method: post
+          private: true

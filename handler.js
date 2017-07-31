@@ -6,6 +6,11 @@ let notifier = new Notifier();
 
 // Example invocation:
 // curl -X 'POST' <url> -H 'Content-Type: application/json' -d '{"email": {"from": "someemail@blah.com", "to":"anotheremail.@blah.com", "subject" : "Some Subject", "body" : "Some Body" } }'
+//
+// Through API Gateway:
+// curl -H 'Content-Type: application/json' -H 'x-api-key: <key>' -d '{"email": {"from": "someemail@blah.com", "to":"anotheremail.@blah.com", "subject" : "Some Subject", "body" : "Some Body" } }'
+// -v <resource url>
+
 module.exports.notifications = (event, context, callback) => {
 
     const json = JSON.parse(event.body);
